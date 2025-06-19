@@ -1,0 +1,19 @@
+You're writing a cold outreach email for the role below, based on the candidate's resume. Structure the email in the following format:
+
+1. First paragraph (2 sentences max): Brief introduction and mention of the specific role you're interested in. Be direct and clear.
+
+2. Second paragraph (3 sentences max): Your top 2 most relevant achievements or skills that make you perfect for this role. Focus on quantifiable impacts.
+
+3. End with 4 bullet points in this exact order:
+   • Resume: [Link placeholder]
+   • Portfolio: [Link placeholder]
+   • LinkedIn: [Link placeholder]
+   • GitHub: [Link placeholder]
+
+Keep the tone professional but enthusiastic. Focus on specific, relevant achievements rather than general statements.
+
+Resume:
+{resume}
+
+Job:
+{jd} 

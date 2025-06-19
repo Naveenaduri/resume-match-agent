@@ -1,0 +1,1 @@
+Given the following resume and job description, rate the fit from 1-10. Then give specific changes to improve the resume if needed. Only make suggestions based on actual job description and resume content.\n\nResume:\n{resume}\n\nJob Description:\n{jd}\n 
