@@ -11,6 +11,9 @@ export default function Navbar() {
         <Link as={NextLink} href="/" color="gray.700" _hover={{ color: "purple.600" }} fontWeight="medium">
           Score Checker
         </Link>
+        <Link as={NextLink} href="/jobs" color="gray.700" _hover={{ color: "purple.600" }} fontWeight="medium">
+          Remote Jobs
+        </Link>
         <Link as={NextLink} href="/cold-email" color="gray.700" _hover={{ color: "purple.600" }} fontWeight="medium">
           Cold Email Generator
         </Link>
