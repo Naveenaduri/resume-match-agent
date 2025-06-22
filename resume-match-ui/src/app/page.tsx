@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -12,6 +12,8 @@ import {
   Flex,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { useSearchParams } from "next/navigation";
+import JobDescriptionAlert from "@/components/JobDescriptionAlert";
 
 export default function HomePage() {
   const [resume, setResume] = useState<File | null>(null);
@@ -19,10 +21,27 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<{ fit_score: number; suggestions: string } | null>(null);
   const [error, setError] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  const searchParams = useSearchParams();
 
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+
+  // Handle job description from URL parameter
+  useEffect(() => {
+    const jdParam = searchParams.get('jd');
+    if (jdParam) {
+      const decodedJd = decodeURIComponent(jdParam);
+      setJd(decodedJd);
+      setShowAlert(true);
+    }
+  }, [searchParams]);
+
+  const handleClearJobDescription = () => {
+    setJd("");
+    setShowAlert(false);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,6 +94,11 @@ export default function HomePage() {
             <Text mb={6} color="gray.600">
               Upload your resume and a job description to see how well you match and get improvement suggestions.
             </Text>
+            
+            {showAlert && (
+              <JobDescriptionAlert onClear={handleClearJobDescription} />
+            )}
+            
             <form onSubmit={handleSubmit}>
               <Stack gap={4}>
                 <Box>
